@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "author": "Sihem DRISSI",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -220.8, "left": 206.44, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -182.1, "left": -101.4, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -197.6,
+      "left": 511.02,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -45.6,
+      "left": 481.8,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 51.2,
+      "left": -114.4,
+      "attrs": {}
+    },
+    { "type": "wokwi-led", "id": "led1", "top": 82.8, "left": 215, "attrs": { "color": "white" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 82.8,
+      "left": 339.8,
+      "attrs": { "color": "cyan" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "esp:GND.1", "dht1:GND", "black", [ "h-119.81", "v-67.2" ] ],
+    [ "dht1:SDA", "esp:15", "green", [ "v0" ] ],
+    [ "pir1:GND", "pir1:OUT", "black", [ "v0" ] ],
+    [ "pir1:VCC", "esp:3V3", "red", [ "v-67.2", "h-288" ] ],
+    [ "bz1:1", "esp:26", "green", [ "v0" ] ],
+    [ "bz1:2", "esp:GND.2", "green", [ "v0" ] ],
+    [ "pir1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "pir1:OUT", "esp:27", "green", [ "v0" ] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [ "h0" ] ],
+    [ "ldr1:GND", "esp:GND.3", "black", [ "h0" ] ],
+    [ "led1:A", "esp:3V3", "green", [ "v0" ] ],
+    [ "led2:A", "esp:3V3", "green", [ "v0" ] ],
+    [ "led1:C", "esp:17", "green", [ "v0" ] ],
+    [ "led2:C", "esp:16", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
