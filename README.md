@@ -25,6 +25,8 @@ Wokwi: For simulating the ESP32 and sensors.
 Blynk App: To control LEDs and buzzer remotely.
 Node-RED: For visualization of sensor data and actuator status.
 MQTT Broker:  HiveMQ 
+
+
  Setup Blynk:
 1.1 Install the Blynk App
 Download and install the Blynk app from the Google Play Store or Apple App Store.
@@ -39,19 +41,17 @@ Tap Create to generate the project.
 After creation, Blynk will show you an Auth Token. This is an important token that will be used to connect your ESP32 to the Blynk cloud. Copy this token and keep it in a safe place.
 1.4 Add Virtual Pins for Control
 In the Blynk app, add the following virtual pins to control devices:
-
 V5: For controlling LED1.
 V6: For controlling LED2.
 V7: For controlling the Buzzer.
 Add appropriate widgets for each virtual pin:
-
 For LED1 and LED2, use a Button widget or Switch widget to turn the LEDs on and off.
 For Buzzer, use a Button or Switch widget to control the buzzer.
 For each widget, configure it to use the corresponding virtual pin (V5, V6, V7) and set the widget’s behavior to either Push or Switch.
 
+
 Node-RED Flow :
 Node-RED is used as the cloud platform for your Smart Home System. It processes the combined sensor data sent by the ESP32 and visualizes it on a dashboard with widgets for temperature, humidity, light, motion, buzzer, and LED status.
-
 1. Input Node:
 1.1 MQTT-IN Node: Subscribe to the Topic
 The MQTT-IN node subscribes to the sensors/data topic, which receives a JSON payload from the ESP32 containing all the sensor data.
